@@ -5,13 +5,16 @@ module "vpc" {
   name = "eks-vpc"
   cidr = var.vpc_cidr
 
+  nat_gateway_single_az = true
+  availability_zones    = ["ap-south-1a"]
+
   azs             = data.aws_availability_zones.azs.names
   private_subnets = var.private_subnets
   public_subnets  = var.public_subnets
 
   enable_dns_hostnames = true
   enable_nat_gateway   = true
-  single_nat_gateway   = true
+  
 
   tags = {
     "kubernetes.io/cluster/my-eks-cluster" = "shared"
