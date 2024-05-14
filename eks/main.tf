@@ -4,8 +4,6 @@ module "vpc" {
 
   name = "eks-vpc"
   cidr = var.vpc_cidr
-
-  nat_gateway_single_az = true
   
 
   azs             = data.aws_availability_zones.azs.names
@@ -14,6 +12,7 @@ module "vpc" {
 
   enable_dns_hostnames = true
   enable_nat_gateway   = true
+  single_nat_gateway   = true
   
 
   tags = {
