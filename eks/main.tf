@@ -6,7 +6,7 @@ module "vpc" {
   cidr = var.vpc_cidr
 
   nat_gateway_single_az = true
-  availability_zones    = ["ap-south-1a"]
+  
 
   azs             = data.aws_availability_zones.azs.names
   private_subnets = var.private_subnets
